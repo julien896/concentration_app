@@ -30,7 +30,7 @@ export const StartPage = () => {
         onClick={handleSubmit}
         disabled={username.length <= 2}
       >
-        Button as link
+        Lets Play!
       </Button>
     </StartComponent>
   )
