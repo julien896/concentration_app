@@ -1,20 +1,7 @@
-import './App.css'
-import { GameRepository } from './app/services/game-repository'
-import { useQuery } from '@tanstack/react-query'
-
-const repo = new GameRepository()
+import { AppNavigation } from './navigation'
 
 function App() {
-
-  const { data: cards } = useQuery(repo.keys.cards(), () => repo.getCards())
-
-  console.log(cards)
-
-  return (
-    <>
-      Hola
-    </>
-  )
+  return <AppNavigation />
 }
 
 export default App
