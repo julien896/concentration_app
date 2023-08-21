@@ -21,7 +21,7 @@ export const BoardCard = ({
       <BiQuestionMark size={80} />
     </Card>
     <Card className="gCard__face gCard__face--front">
-      <Card.Img variant="top" src={url} />
+      <Card.Img variant="top" src={url} alt="Card" />
     </Card>
   </div>
 )

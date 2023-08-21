@@ -12,19 +12,35 @@ export const GamePage = () => {
 
   return (
     <GameComponent>
-        <GameComponent.Container>
-            {cards?.map((card, index) => (
-                <GameComponent.Card
-                  onClick={() => onFlipCard(index)}
-                  isFlipped={
-                    flippedCards.includes(index) || 
-                    currentResults.matchedPairs.includes(card.uuid)
-                  }
-                  key={index} 
-                  url={card.url}
-                />
-            ))}
-        </GameComponent.Container>
+        {isLoading ? 
+          <GameComponent.Spinner /> 
+        :
+          <>
+            <GameComponent.Info>
+              <GameComponent.InfoElement 
+                title='Hits'
+                value={currentResults.hits}
+              />
+              <GameComponent.InfoElement 
+                title='Errors'
+                value={currentResults.errors}
+              />
+            </GameComponent.Info>
+            <GameComponent.Container>
+                {cards?.map((card, index) => (
+                    <GameComponent.Card
+                      onClick={() => onFlipCard(index)}
+                      isFlipped={
+                        flippedCards.includes(index) || 
+                        currentResults.matchedPairs.includes(card.uuid)
+                      }
+                      key={index} 
+                      url={card.url}
+                    />
+                ))}
+            </GameComponent.Container>
+          </>
+        }
     </GameComponent>
   )
 }

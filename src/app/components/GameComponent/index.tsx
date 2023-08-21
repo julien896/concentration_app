@@ -1,4 +1,6 @@
 import { BoardContainer, BoardCard } from './Board/Board';
+import { Info, InfoElement } from './Info/Info';
+import Spinner from './Spinner/Spinner';
 
 export const GameComponent = ({ 
     children
@@ -10,3 +12,6 @@ export const GameComponent = ({
 
 GameComponent.Container = BoardContainer
 GameComponent.Card = BoardCard
+GameComponent.Info = Info
+GameComponent.InfoElement = InfoElement
+GameComponent.Spinner = Spinner
