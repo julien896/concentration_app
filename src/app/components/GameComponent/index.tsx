@@ -1,4 +1,4 @@
-import { GameCard, GameContainer } from './Game/Game';
+import { BoardContainer, BoardCard } from './Board/Board';
 
 export const GameComponent = ({ 
     children
@@ -8,5 +8,5 @@ export const GameComponent = ({
     <>{children}</>
 )
 
-GameComponent.Container = GameContainer
-GameComponent.Card = GameCard
+GameComponent.Container = BoardContainer
+GameComponent.Card = BoardCard

@@ -29,8 +29,14 @@
 
         &--back {
             background: $white;
+            opacity: .9;
             display: flex;
             justify-content: center;
+            align-items: center;
+
+            & svg {
+              fill: $primary;
+            }
         }
       }
     }

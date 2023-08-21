@@ -24,10 +24,10 @@ export const AppNavigation = () => {
           <Route
             path="/game"
             element={
-            <RequireUser>
-              <GamePage />
-            </RequireUser>
-          }
+              <RequireUser>
+                <GamePage />
+              </RequireUser>
+            }
           />
         </Routes>
     </Router>

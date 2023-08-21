@@ -28,6 +28,7 @@ export const StartPage = () => {
         type='submit'
         variant="secondary"
         onClick={handleSubmit}
+        onMouseEnter={handleSubmit}
         disabled={username.length <= 2}
       >
         Lets Play!
