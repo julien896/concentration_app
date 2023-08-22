@@ -8,10 +8,13 @@ interface Props {
 
 export const Input = ( { value, handleChange }: Props ) => {
   return (
-    <Form.Control
-      placeholder="Username"
-      value={value}
-      onChange={handleChange}
-    />
+    <div className='input-container'>
+      <Form.Control
+        className='input-container__input'
+        placeholder="Username"
+        value={value}
+        onChange={handleChange}
+      />
+    </div>
   )
 }

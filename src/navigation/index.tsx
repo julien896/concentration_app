@@ -17,11 +17,8 @@ export const AppNavigation = () => {
   return (
     <Router>
         <Routes>
-          <Route
-            path="/"
-            element={<StartPage />}
-          />
-          <Route
+          <Route path="/" element={<StartPage />} />
+          <Route 
             path="/game"
             element={
               <RequireUser>
@@ -29,6 +26,7 @@ export const AppNavigation = () => {
               </RequireUser>
             }
           />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     </Router>
   );

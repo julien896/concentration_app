@@ -2,18 +2,21 @@ import { useState } from 'react';
 import { Card } from '../models/Card';
 
 interface IResults {
-    matchedPairs: string[];
-    hits: number;
-    errors: number;
+  matchedPairs: string[];
+  hits: number;
+  errors: number;
 }
 
 export function useConcentrationLogic(cards: Card[]) {
-  const [flippedCards, setFlippedCards] = useState<number[]>([]);
-  const [currentResults, setCurrentResults] = useState<IResults>({
+
+  const initialState = {
     matchedPairs: [],
     hits: 0,
     errors: 0
-  })
+  }
+
+  const [flippedCards, setFlippedCards] = useState<number[]>([]);
+  const [currentResults, setCurrentResults] = useState<IResults>(initialState)
   
   const onFlipCard = (index: number) => {
     const isNotMatch = !currentResults.matchedPairs.includes(cards![index].uuid)
@@ -49,9 +52,15 @@ export function useConcentrationLogic(cards: Card[]) {
     }
   };
 
+  const restartGame = () => {
+    setFlippedCards([])
+    setCurrentResults(initialState)
+  }
+
   return {
     flippedCards,
     onFlipCard,
-    currentResults
+    currentResults,
+    restartGame
   };
 }

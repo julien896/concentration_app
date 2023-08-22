@@ -1,20 +1,25 @@
 import { useState } from 'react'
-import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { StartComponent } from '../components/StartComponent'
+import { StartRepository } from '../services/start-repository'
+import { useMutation } from '@tanstack/react-query'
+
+const repo = new StartRepository()
 
 export const StartPage = () => {
   const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
 
-  const handleSubmit = () => {
-    localStorage.setItem('concentration_user', username)
-
-    setTimeout(() => {
+  const usernameMutation = useMutation(repo.postUsername, {
+    onSuccess: () => {
       navigate('/game')
       setUsername('')
-    }, 1000);
+    }
+  });
+
+  const handleSubmit = async () => {
+    await usernameMutation.mutateAsync(username)
   }
 
   return (
@@ -24,15 +29,11 @@ export const StartPage = () => {
         value={username} 
         handleChange={e => setUsername(e.target.value)}
       />
-      <Button 
-        type='submit'
-        variant="secondary"
-        onClick={handleSubmit}
-        onMouseEnter={handleSubmit}
-        disabled={username.length <= 2}
-      >
-        Lets Play!
-      </Button>
+      <StartComponent.Button 
+        disabled={username.length <= 2 || usernameMutation.isLoading} 
+        handleSubmit={handleSubmit}
+        isLoading={usernameMutation.isLoading}
+      />
     </StartComponent>
   )
 }

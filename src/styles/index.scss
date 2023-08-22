@@ -4,9 +4,12 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 @import '../app/components/StartComponent/Title/title.scss';
+@import '../app/components/StartComponent/Input/input.scss';
+@import '../app/components/StartComponent/Button/button.scss';
+
 @import '../app/components/GameComponent/Board/board.scss';
 @import '../app/components/GameComponent/Info/info.scss';
-
+@import '../app/components/GameComponent/EndModal/endModal.scss';
 @import '../app/components/GameComponent/Spinner/spinner.scss';
 
 
@@ -27,7 +30,12 @@ body {
   margin: 0;
   background-color: $black;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
 }
