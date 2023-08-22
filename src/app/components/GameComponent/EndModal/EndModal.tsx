@@ -9,7 +9,7 @@ import { Button, Modal } from "react-bootstrap";
     show: boolean;
     onRestart: () => void;
   }) => (
-    <Modal className='modal' show={show} animation={false}>
+    <Modal className='modal' show={show} centered>
       <Modal.Body className='modal__body'>
         <h4>
           Congratulations <strong>{user}</strong>, you've won!

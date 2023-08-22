@@ -11,17 +11,19 @@ export const BoardCard = ({
   url, 
   onClick, 
   isFlipped,
+  matchAnimation
 } : { 
-  url: string, 
-  onClick: () => void, 
-  isFlipped: boolean,
+  url: string; 
+  onClick: () => void; 
+  isFlipped: boolean;
+  matchAnimation: string;
 }) => (
   <div onClick={onClick} className={`gCard ${isFlipped && 'is-flipped'}`}>
     <Card className="gCard__face gCard__face--back">
       <BiQuestionMark size={80} />
     </Card>
-    <Card className="gCard__face gCard__face--front">
-      <Card.Img variant="top" src={url} alt="Card" />
+    <Card className='gCard__face gCard__face--front'>
+      <Card.Img variant="top" src={url} alt="Card" className={matchAnimation} />
     </Card>
   </div>
 )

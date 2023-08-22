@@ -41,6 +41,7 @@ export function useConcentrationLogic(cards: Card[]) {
           matchedPairs: [...prevResults.matchedPairs, card1.uuid],
           hits: prevResults.hits + 1
         }))
+
       } else {
         setCurrentResults(prevResults => ({
           ...prevResults,
@@ -61,6 +62,6 @@ export function useConcentrationLogic(cards: Card[]) {
     flippedCards,
     onFlipCard,
     currentResults,
-    restartGame
+    restartGame,
   };
 }

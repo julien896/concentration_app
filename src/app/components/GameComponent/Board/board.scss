@@ -43,9 +43,22 @@
             }
         }
       }
+
+      .matched {
+        animation: matchAnimation 1s ease-in-out;
+      }
     }
 
     .gCard.is-flipped {
         transform: translateX(-100%) rotateY(-180deg);
     }
+}
+
+@keyframes matchAnimation {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }

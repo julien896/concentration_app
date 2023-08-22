@@ -7,10 +7,15 @@ import { useEffect, useState } from 'react'
 const repo = new GameRepository()
 
 export const GamePage = () => {
-  const { data: cards, isLoading } = useQuery(repo.keys.cards(), () => repo.getCards())
-  console.log(cards)
+  const getCardsQuery = useQuery(repo.keys.cards(), () => repo.getCards())
+  const { data: cards, isLoading } = getCardsQuery
 
-  const { flippedCards, currentResults, onFlipCard, restartGame } = useConcentrationLogic(cards!)
+  const { 
+    flippedCards, 
+    currentResults, 
+    onFlipCard, 
+    restartGame,
+  } = useConcentrationLogic(cards!)
 
   const { hits, errors, matchedPairs } = currentResults
 
@@ -20,13 +25,14 @@ export const GamePage = () => {
   const onRestart = () => {
      modalOpen()
      restartGame()
+     getCardsQuery.refetch()
   }
 
   useEffect(() => {
     if (cards && matchedPairs?.length === cards.length / 2) {
       setTimeout(() => {
         modalOpen()
-      }, 1000);
+      }, 1300);
     }
   }, [matchedPairs])
 
@@ -49,13 +55,14 @@ export const GamePage = () => {
             <GameComponent.Container>
                 {cards?.map((card, index) => (
                     <GameComponent.Card
+                      key={index} 
                       onClick={() => onFlipCard(index)}
                       isFlipped={
                         flippedCards.includes(index) || 
                         matchedPairs.includes(card.uuid)
                       }
-                      key={index} 
                       url={card.url}
+                      matchAnimation={matchedPairs.includes(card.uuid) ? 'matched' : ''}
                     />
                 ))}
             </GameComponent.Container>
