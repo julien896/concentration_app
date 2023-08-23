@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { StartComponent } from '../components/StartComponent'
 import { StartRepository } from '../services/start-repository'
 import { useMutation } from '@tanstack/react-query'
+import { Toast } from 'react-bootstrap'
 
 const repo = new StartRepository()
 
@@ -20,6 +21,11 @@ export const StartPage = () => {
 
   const handleSubmit = async () => {
     await usernameMutation.mutateAsync(username)
+    .catch((e) => (
+      <Toast delay={2000} autohide>
+        <Toast.Body>{e}</Toast.Body>
+      </Toast>
+    ))
   }
 
   return (
