@@ -1,27 +1,40 @@
-# React + TypeScript + Vite
+# Concentration Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Concentration game implemented with Vite and React.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js
+- NPM
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone this repository on your local machine:
 
-- Configure the top-level `parserOptions` property like this:
+   ```bash
+   git clone https://github.com/julien896/concentration-app.git
+   
+2. Navigate to the project directory:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+   ```bash
+   cd concentration-app 
+   
+3. Install the dependencies using NPM:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```bash
+   npm install     
+   
+   
+## Usage   
+
+1. Start the development server:
+
+   ```
+   npm run dev
+   ```
+   This will start the application in development mode. Open your browser and access http://localhost:3000 to play the game.
+   
+2. Follow the instructions on the screen 
+   
+   
+   
